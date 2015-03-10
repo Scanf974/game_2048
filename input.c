@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bsautron <bsautron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 03:42:10 by dvolberg          #+#    #+#             */
-/*   Updated: 2015/03/01 21:43:52 by gbadi            ###   ########.fr       */
+/*   Created: 2015/03/03 15:41:07 by bsautron          #+#    #+#             */
+/*   Updated: 2015/03/03 15:41:08 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int					**ft_keytrigger(int key_press, t_env *env)
 {
 	env->pop = 0;
 	if (key_press == 27)
+	{
+		endwin();
 		exit(-1);
+	}
 	if (key_press == KEY_UP)
 		exec(env, &move_top, &merge_top);
 	else if (key_press == KEY_DOWN)

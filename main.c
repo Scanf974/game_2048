@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 03:23:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:39:11 by gbadi            ###   ########.fr       */
+/*   Created: 2015/03/03 16:03:50 by bsautron          #+#    #+#             */
+/*   Updated: 2015/03/03 16:03:55 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void		printmenu(int *sel, WINDOW *new_game, WINDOW *quit_game, int ch)
+static void		printmenu(int *sel, WINDOW *new_game, WINDOW *quit_game, int ch)
 {
 	if (*sel)
 	{
@@ -34,7 +34,7 @@ void		printmenu(int *sel, WINDOW *new_game, WINDOW *quit_game, int ch)
 		*sel = 0;
 }
 
-void		menu(int x, int y, t_env *env)
+static void		menu(int x, int y, t_env *env)
 {
 	int		sel;
 	WINDOW	*new_game;
@@ -46,7 +46,7 @@ void		menu(int x, int y, t_env *env)
 	while (1)
 	{
 		env->ch = getch();
-		printtitle(x);
+		printtitle();
 		printmenu(&sel, new_game, quit_game, env->ch);
 		if (env->ch == 10 || env->ch == 27)
 			break ;
@@ -63,7 +63,7 @@ void		menu(int x, int y, t_env *env)
 	(void)y;
 }
 
-int			ft_pow(int b, int n)
+static int		ft_pow(int b, int n)
 {
 	if (n == 0)
 		return (1);
@@ -73,7 +73,7 @@ int			ft_pow(int b, int n)
 		return (b * ft_pow(b, n - 1));
 }
 
-int			ft_check_win_value(void)
+static int		ft_check_win_value(void)
 {
 	int		i;
 
@@ -87,7 +87,7 @@ int			ft_check_win_value(void)
 	return (0);
 }
 
-int			main(void)
+int				main(void)
 {
 	t_env	*env;
 	int		y_max;

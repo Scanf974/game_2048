@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   tab.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 00:29:38 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 18:26:34 by dvolberg         ###   ########.fr       */
+/*   Created: 2015/03/03 16:03:34 by bsautron          #+#    #+#             */
+/*   Updated: 2015/03/03 16:03:35 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int					full(t_env *env)
+static int	full(t_env *env)
 {
-	int				i;
-	int				j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < SIZE)
@@ -32,10 +32,10 @@ int					full(t_env *env)
 	return (1);
 }
 
-int					**fill_tab(t_env *env)
+int			**fill_tab(t_env *env)
 {
-	int				x;
-	int				y;
+	int		x;
+	int		y;
 
 	x = rand() % SIZE;
 	y = rand() % SIZE;
@@ -54,9 +54,9 @@ int					**fill_tab(t_env *env)
 	return (env->tab);
 }
 
-void				free_env(t_env *e)
+void		free_env(t_env *e)
 {
-	int				i;
+	int		i;
 
 	i = 0;
 	while (i < SIZE)
@@ -70,11 +70,11 @@ void				free_env(t_env *e)
 	e->tab = NULL;
 }
 
-int					**make_tab(void)
+int			**make_tab(void)
 {
-	int				**tab;
-	size_t			i;
-	size_t			j;
+	int		**tab;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (!(tab = (int **)malloc(sizeof(int *) * (SIZE + 1))))

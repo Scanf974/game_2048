@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbadi <gbadi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dvolberg <dvolberg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 01:34:36 by gbadi             #+#    #+#             */
-/*   Updated: 2015/03/01 23:40:53 by gbadi            ###   ########.fr       */
+/*   Created: 2015/03/01 01:34:36 by dvolberg          #+#    #+#             */
+/*   Updated: 2015/03/03 15:51:06 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-# define EMPTY 			3
+# define EMPTY			3
 # define COLOR_EMPTY	(13)
 # define COLOR_BG		(15)
 # define COLOR_2		(31)
@@ -43,11 +43,13 @@ typedef struct			s_env
 {
 	int					**tab;
 	int					win;
-	int 				ret;
-	int 				ch;
+	int					ret;
+	int					ch;
 	size_t				score;
 	size_t				highscore;
 	char				pop;
+	int					y;
+	int					x;
 	int					y_new;
 	int					x_new;
 	int					y_max;
@@ -76,10 +78,10 @@ void					ft_init(void);
 int						**ft_keytrigger(int key_press, t_env *env);
 int						check(t_env *env);
 void					ft_putnbr_to_grid(int y_max, int x_max, int **tab);
-void					gameover(int x);
+int						ft_print_tout(int val, int x, int y);
+void					gameover(void);
 int						ft_get_pair(int val);
-void					printtitle(int x);
-void					printgameover(int x);
+void					printtitle();
 void					print_2(int y, int x);
 void					print_8(int y, int x);
 void					print_4(int y, int x);
@@ -103,10 +105,6 @@ void					ascii_2048(int y, int x);
 void					ascii_4096(int y, int x);
 void					free_env(t_env *e);
 int						play(t_env *env);
-void					printwin(int x);
-int						ft_print_tout(int val, int x, int y);
-void					color_init_init(void);
-void					gameover(int x);
-void					printtitle(int x);
+void					printwin(void);
 
 #endif
